@@ -3,31 +3,31 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/about_us', to: 'welcome#about_us', as: 'about_us'
   resources :users
-  resources :articles do 
-    resources :comments   
-  end 
-  
+  resources :articles do
+    resources :comments
+  end
+
   #show, buying products
   get "product/:permalink", to: "products#show", as: "product"
   post "product/:permalink", to: "products#buy", as: "buy"
   get 'products', to: 'products#index'
-  
+
   #adding products to basket
   get "basket", to: "orders#show"
   delete "basket", to: "orders#destroy"
-  
+
   #checking out
   match "checkout", to: "orders#checkout", as: "checkout", via: [:get, :patch]
   match "checkout/pay", to: "orders#payment", as: "checkout_payment", via: [:get, :post]
   match "checkout/confirm", to: "orders#confirmation", as: "checkout_confirmation", via: [:get, :post]
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-#Karen added to test all functions with Users 
+#Karen added to test all functions with Users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
