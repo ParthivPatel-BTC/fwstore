@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_filter :user_logged_in?, only: [:checkout, :payment, :confirmation, :destory ]
+
   def destroy
     current_order.destroy
     session[:order_id] = nil
@@ -8,7 +10,7 @@ class OrdersController < ApplicationController
   def checkout
     @order = Shoppe::Order.find(current_order.id)
     if request.patch?
-      if @order.proceed_to_confirm(params[:order].permit(:first_name, :last_name, :billing_address1, :billing_address2, :billing_address3, :billing_address4, :billing_country_id, :billing_postcode, :email_address, :phone_number))
+      if @order.proceed_to_confirm(params[:order].permit(:first_name, :last_name, :billing_address1, :billing_address2, :billing_address3, :billing_address4, :billing_country_id, :billing_postcode, :email_address, :phone_number).merge(user_id: session['current_user'] ))
         redirect_to checkout_payment_path
       end
     end

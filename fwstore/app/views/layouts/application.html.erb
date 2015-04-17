@@ -7,11 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'layouts/navigation' %>
+  <%= render 'layouts/navigation' %>
   <%= yield %>
-  <%= link_to "Checkout", checkout_path %>
 
-    </div><!-- /.container -->
-	<%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
