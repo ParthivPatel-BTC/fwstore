@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   mount Shoppe::Engine => "/shoppe"
+  match 'users' => 'users#create', via: [:get, :post]
+  post 'users/sign_in' => 'users#sign_in'
+  delete 'users/sign_out' => 'users#sign_out'
+  delete 'users/delete' => 'users#delete'
+  get 'users/new' => 'users#new'
+
   get 'welcome/index'
   get 'welcome/about_us', to: 'welcome#about_us', as: 'about_us'
   resources :users

@@ -1,0 +1,35 @@
+<%= render 'orders/orderlayout' %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading">Sign In</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-2"></div>
+    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+      <%= form_tag :users_sign_in, :class => 'form-horizontal' do %>
+        <div class="form-group">
+          <p class="field">
+            <%= text_field_tag 'email_address', params[:email_address], :class => 'form-control', :placeholder => t('shoppe.sessions.email') %>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <p class="field">
+            <%= password_field_tag 'password', params[:password], :class => 'form-control', :placeholder =>  t('shoppe.sessions.password') %>
+          </p>
+        </div>
+        <div class="form-group">
+          <p class="submit">
+            <%= submit_tag t('shoppe.sessions.login'), :class => 'btn btn-success' %>
+          </p>
+          <p class="reset">
+            <%= link_to t('shoppe.sessions.sign_up'), users_path %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-2"></div>
+  </div>
+</div>
