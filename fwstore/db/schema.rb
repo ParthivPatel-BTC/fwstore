@@ -220,6 +220,14 @@ ActiveRecord::Schema.define(version: 20150417091444) do
 
   add_index "shoppe_settings", ["key"], name: "index_shoppe_settings_on_key", using: :btree
 
+  create_table "shoppe_states", force: :cascade do |t|
+    t.integer  "country_id"
+    t.string   "code2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
   create_table "shoppe_stock_level_adjustments", force: :cascade do |t|
     t.integer  "item_id"
     t.string   "item_type"
@@ -239,8 +247,9 @@ ActiveRecord::Schema.define(version: 20150417091444) do
     t.decimal  "rate",         precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "country_ids"
     t.string   "address_type"
+    t.integer  "country_id"
+    t.integer  "state_id"
   end
 
   create_table "shoppe_users", force: :cascade do |t|
