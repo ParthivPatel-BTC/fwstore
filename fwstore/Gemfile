@@ -38,14 +38,11 @@ gem 'shoppe', :path => "/home/hiren/rails_application/shoppe_gem/shoppe-gem"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem "shoppe-stripe", require: "shoppe/stripe"
+gem 'shoppe-notification', :path => '~/rails_projects/shoppe-notification'
 gem 'pry'
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'pg'
-  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

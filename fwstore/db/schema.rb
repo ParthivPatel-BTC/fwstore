@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417091444) do
+ActiveRecord::Schema.define(version: 20150417115615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150417091444) do
     t.decimal  "max_weight",          precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "country_ids"
+    t.integer  "country_id"
   end
 
   add_index "shoppe_delivery_service_prices", ["delivery_service_id"], name: "index_shoppe_delivery_service_prices_on_delivery_service_id", using: :btree
