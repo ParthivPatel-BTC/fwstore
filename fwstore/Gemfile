@@ -26,8 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.4'
 
 #Shoppe
-# gem 'shoppe', :git => 'https://github.com/ParthivPatel-BTC/shoppe-gem.git', :branch => 'master_shoppe_parthiv'
-gem 'shoppe', :path => "/home/parthiv/projects/shoppe-1"
+gem 'shoppe', :path => '~/rails_projects/shoppe_enh/shoppe-gem'
 #gem "shoppe-stripe", require: "shoppe/stripe"
 
 #for Heroku
@@ -39,8 +38,7 @@ gem 'shoppe', :path => "/home/parthiv/projects/shoppe-1"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem "shoppe-stripe", require: "shoppe/stripe"
-
+gem 'shoppe-notification', :path => '~/rails_projects/shoppe-notification'
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'pg'
